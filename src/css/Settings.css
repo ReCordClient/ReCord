@@ -1,0 +1,203 @@
+.divider-RC {
+    width: 100%;
+    height: 1px;
+    border-top: thin solid var(--background-modifier-accent)
+}
+
+.dividerDefault-RC {
+    margin-top: 20px;
+}
+
+.container-RC-Section, .labelRow-RC {
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    /* Added 
+    width: 100% !important;
+    */
+}
+
+.sectionTitle-RC {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.labelRow-RC {
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.note-RC {
+    margin-top: 8px;
+}
+
+.description-RC, .labelDescriptor-RC {
+    color: var(--header-secondary);
+}
+
+.modeDefault-RC {
+    cursor: default;
+}
+
+.description-RC {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.description-RC-WSPW {
+    white-space: pre-wrap;
+}
+
+
+
+.size14-RC {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.colorStandard-RC {
+    color: var(--text-normal);
+}
+
+.title-RC {
+    -webkit-box-flex: 1;
+    flex: 1;
+    display: block;
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--header-primary);
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.control-RC {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+}
+
+.container-RC-Slider, .input-RC {
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.container-RC-Slider {
+    position: relative;
+    width: 40px;
+    height: 24px;
+}
+
+.slider-RC {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 18px;
+    margin: 3px;
+}
+
+.input-RC {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.children-RC, [class*="sectionTitle-"] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.children-RC-FlexCol {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.marginBottom40-RC {
+    margin-bottom: 40px;
+}
+
+.marginTop20-RC {
+    margin-top: 20px;
+}
+
+.marginBottom20-RC {
+    margin-bottom: 20px;
+}
+
+.selected-RC {
+    background-color: var(--background-modifier-selected);
+}
+
+.selected-RC[class*="item-"] {
+    cursor: default;
+    color: var(--interactive-active);
+}
+
+
+
+/*
+---OFF---
+<div class="container-31PmuA">
+    <div class="labelRow-NnoUIp">
+        <label for=":r40:" class="title-2yADjX">Application Test Mode</label>
+        <div class="control-10qYax">
+            <div class="container-1QtPKm" style="opacity: 1; background-color: rgb(128, 132, 142);">
+                <svg class="slider-HJFN2i" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid meet" aria-hidden="true" style="left: -3px;">
+                    <rect fill="white" x="4" y="0" height="20" width="20" rx="10"></rect>
+                    <svg viewBox="0 0 20 20" fill="none">
+                        <path fill="rgba(128, 132, 142, 1)" d="M5.13231 6.72963L6.7233 5.13864L14.855 13.2704L13.264 14.8614L5.13231 6.72963Z"></path>
+                        <path fill="rgba(128, 132, 142, 1)" d="M13.2704 5.13864L14.8614 6.72963L6.72963 14.8614L5.13864 13.2704L13.2704 5.13864Z"></path>
+                    </svg>
+                </svg>
+                <input id=":r40:" type="checkbox" class="input-125oad" tabindex="0"></div>
+            </div>
+        </div>
+        <div class="note-3SS3a9">
+            <div class="colorStandard-1Xxp1s size14-k_3Hy4 description-foE_WP formText-2UzJT0 modeDefault-3Warim">Enter your Discord application ID to enable test mode for that application.</div>
+        </div>
+        <div class="divider-3nqZNm dividerDefault-wIfHHD"></div>
+    </div>
+</div>
+
+
+---ON---
+<div class="container-31PmuA">
+    <div class="labelRow-NnoUIp">
+        <label for=":r3v:" class="title-2yADjX">Show Game Library</label>
+        <div class="control-10qYax">
+            <div class="container-1QtPKm checked-16gMAN" style="opacity: 1; background-color: rgb(35, 165, 90);">
+                <svg class="slider-HJFN2i" viewBox="0 0 28 20" preserveAspectRatio="xMinYMid meet" aria-hidden="true" style="left: 12px;">
+                    <rect fill="white" x="4" y="0" height="20" width="20" rx="10"></rect>
+                    <svg viewBox="0 0 20 20" fill="none">
+                        <path fill="rgba(35, 165, 90, 1)" d="M7.89561 14.8538L6.30462 13.2629L14.3099 5.25755L15.9009 6.84854L7.89561 14.8538Z"></path>
+                        <path fill="rgba(35, 165, 90, 1)" d="M4.08643 11.0903L5.67742 9.49929L9.4485 13.2704L7.85751 14.8614L4.08643 11.0903Z"></path>
+                    </svg>
+                </svg>
+                <input id=":r3v:" type="checkbox" class="input-125oad" tabindex="0" checked=""></div>
+            </div>
+        </div>
+        <div class="note-3SS3a9">
+            <div class="colorStandard-1Xxp1s size14-k_3Hy4 description-foE_WP formText-2UzJT0 modeDefault-3Warim">Turn this off to hide your Game Library so you can focus on your conversations.</div>
+        </div>
+        <div class="divider-3nqZNm dividerDefault-wIfHHD"></div>
+    </div>
+</div>
+    */

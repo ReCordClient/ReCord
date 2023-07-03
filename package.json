@@ -1,0 +1,7 @@
+{
+    "name": "record",
+    "main": "inject.js",
+    "dependencies": {
+        "electron": "^25.2.0"
+    }
+}
