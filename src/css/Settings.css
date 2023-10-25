@@ -117,7 +117,7 @@
     margin: 0;
 }
 
-.children-RC, [class*="sectionTitle-"] {
+.children-RC, [class*="sectionTitle_"] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -146,9 +146,18 @@
     background-color: var(--background-modifier-selected);
 }
 
-.selected-RC[class*="item-"] {
+.selected-RC[class*="item_"] {
     cursor: default;
     color: var(--interactive-active);
+}
+
+.separator_rc {
+    margin: 8px 10px;
+    height: 1px;
+
+    box-sizing: border-box;
+
+    background-color: var(--background-modifier-accent);
 }
 
 

@@ -166,7 +166,14 @@ module.exports = class ConfigServer {
         this.EnabledThemesCSS = []
         for (let i = 0; i < this.EnabledThemes.length; i++) {
             let theme = this.EnabledThemes[i];
-            let css = fs.readFileSync(path.join(this.ThemesFolder, theme + '.theme.css'), 'utf-8');
+            let css = fs.readFileSync(path.join(this.ThemesFolder, theme + '.theme.css'), 'utf-8')
+                .replace(/\[class*="([a-z0-9A-Z\-_]+-)"\]/g, (match) => match.replace('-', '_'))
+                .replace(/\.([A-Za-z0-9]+)-[A-Za-z0-9\-_]{6}/g, (str, m1) => {
+                    const replacement = `[class*="${m1}"]`
+                    console.log(`Replacing ${str} with ${replacement}`)
+                    return replacement
+                })
+            console.log(css)
             this.FetchCSSImports(css).then((css2) => {
                 // console.log(css2, theme, i);
                 this.EnabledThemesCSS.push(css2);

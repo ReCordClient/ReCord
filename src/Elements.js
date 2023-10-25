@@ -44,7 +44,7 @@ module.exports = class {
         let tab = document.createElement("div");
         
         for (let attr of attrs) 
-        tab.setAttribute(attr.name, attr.value);
+            tab.setAttribute(attr.name, attr.value);
         
         tab.classList.add("rc-tab");
         tab.innerHTML = innerHTML;
@@ -55,7 +55,7 @@ module.exports = class {
     }
     
     generateSettingsTitle(innerHTML) {
-        let existingTitle = document.querySelector('[role="button"][tabindex="-1"][class*="header-"]');
+        let existingTitle = document.querySelector('[role="button"][tabindex="-1"][class*="header_"]');
         
         let newTitle = existingTitle.cloneNode(true);
         
@@ -74,7 +74,7 @@ module.exports = class {
 
     grabSectionTitleClassAttrs() {
         setTimeout(() => {
-            let el = document.querySelector('[class*="sectionTitle-"]:not([class*="peopleColumn-"])');
+            let el = document.querySelector('[class*="sectionTitle_"]:not([class*="peopleColumn_"])');
 
             if (!el) return null;
 
@@ -84,7 +84,9 @@ module.exports = class {
     }
 
     generateSettingsSeperator(insertTab) {
-        return insertTab.nextElementSibling.cloneNode(true);
+        let sep = document.createElement('div')
+        sep.classList.add('separator_rc')
+        return sep
     }
 
     generateThemeRow(name, path, enabled) {

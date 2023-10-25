@@ -55,6 +55,7 @@ let interval = setInterval(() => {
         //console.log(BuiltinStyles.GetRemoveNitroGradientsFunction().toString());
 
         App.Run(`
+        
         (${ProtoFixes.toString()})();
 
         window.RC = {};
@@ -68,6 +69,7 @@ let interval = setInterval(() => {
 
         (${ConfigSaver.toString()})();
         `);
+        
         App.Run(BuiltinStyles.Setter());
 
         
@@ -153,7 +155,9 @@ let interval = setInterval(() => {
             window.RC.Events = new EventEmitter();
 
             waitForElm('[aria-label="Direct Messages"]').then((elm) => {
-                window.RC.Events.emit("apps_ready");
+                setTimeout(() => {
+                    window.RC.Events.emit("apps_ready");
+                }, 100)
             })
 
             listenForElm('[aria-label="My Account"]', (elm) => {
@@ -165,12 +169,12 @@ let interval = setInterval(() => {
                 window.RC.Events.emit("settings_closed");
             }, false)
 
-            waitForElm('[style="flex: 1 1 auto;"]>[class*="buttons-"]>button[type="button"][class*="lookFilled-"][class*="grow-"]', true).then((elm) => {
+            waitForElm('[style="flex: 1 1 auto;"]>[class*="buttons_"]>button[type="button"][class*="lookFilled_"][class*="grow_"]', true).then((elm) => {
                 let parent = elm.parentElement;
 
                 elm.remove()
 
-                let note = document.querySelector('[class*="note-"]').children[0];
+                let note = document.querySelector('[class*="note_"]').children[0];
 
                 note.style.color = "var(--bg-gradient-citrus-sherbert-2)";
 
@@ -181,8 +185,11 @@ let interval = setInterval(() => {
 
             window.RC.Events.on("settings_opened", () => {
                 console.log("Settings opened!");
-                window.RC.Elements.grabSectionTitleClassAttrs();
-                window.RC.SettingsPopup();
+                // alert('settings opened')
+                setTimeout(() => {
+                    window.RC.Elements.grabSectionTitleClassAttrs();
+                    window.RC.SettingsPopup();
+                }, 500)
             })
 
             window.RC.Events.on("apps_ready", () => {
@@ -223,7 +230,7 @@ let interval = setInterval(() => {
             
             
             //alert("Injected script loaded!");
-            document.querySelector('[class*="tip-"]').innerHTML = "ReCord is starting...";
+            document.querySelector('[class*="tip_"]').innerHTML = "ReCord is starting...";
             
             document.head.appendChild(document.createElement("script")).innerHTML = `console.log("Injected script loaded!");`;
         });

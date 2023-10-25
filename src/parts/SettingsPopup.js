@@ -6,7 +6,7 @@ module.exports = function () {
         tabs.forEach((tab) => {
             // console.log(tab);
             if (!tab.classList.contains("rc-tab") &&
-                tab.matches('[class*="selected-"]')) {
+                tab.matches('[class*="selected_"]')) {
                 tab.setAttribute("class", tab.getAttribute("class").replace(/selected-.+? /, ""));
                 tab.setAttribute("aria-selected", "false");
             }
@@ -22,7 +22,7 @@ module.exports = function () {
 
     
     let rc_settings_tab = RC.Elements.generateSettingsTab("ReCord Settings", () => {
-        let main = document.querySelector('[role="tabpanel"][id$="-tab"][class*="contentColumn-"]')
+        let main = document.querySelector('[role="tabpanel"][id$="-tab"][class*="contentColumn_"]')
 
         addClass();
         removeSelectedFromOthers();
