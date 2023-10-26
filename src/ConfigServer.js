@@ -15,6 +15,14 @@ module.exports = class ConfigServer {
     EnabledThemes = []
     EnabledThemesCSS = []
 
+    fixCSS = css => css
+        .replace(/\[class*="([a-z0-9A-Z\-_]+-)"\]/g, (match) => match.replace('-', '_'))
+        .replace(/\.([A-Za-z0-9]+)-[A-Za-z0-9\-_]{6}/g, (str, m1) => {
+            const replacement = `[class*="${m1}"]`
+            console.log(`Replacing ${str} with ${replacement}`)
+            return replacement
+        })
+
     
     GetThemes(req, res) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -64,6 +72,8 @@ module.exports = class ConfigServer {
                 data += chunk;
             });
 
+            data = this.fixCSS(data)
+
             response.on('end', () => {
                 res.writeHead(200, { 'Content-Type': 'application/css' });
                 res.end(data);
@@ -82,6 +92,8 @@ module.exports = class ConfigServer {
                 response.on('data', (chunk) => {
                     data += chunk.toString();
                 });
+
+                data = this.fixCSS(data)
             
                 response.on('end', () => {
                     resolve(data);
@@ -166,13 +178,7 @@ module.exports = class ConfigServer {
         this.EnabledThemesCSS = []
         for (let i = 0; i < this.EnabledThemes.length; i++) {
             let theme = this.EnabledThemes[i];
-            let css = fs.readFileSync(path.join(this.ThemesFolder, theme + '.theme.css'), 'utf-8')
-                .replace(/\[class*="([a-z0-9A-Z\-_]+-)"\]/g, (match) => match.replace('-', '_'))
-                .replace(/\.([A-Za-z0-9]+)-[A-Za-z0-9\-_]{6}/g, (str, m1) => {
-                    const replacement = `[class*="${m1}"]`
-                    console.log(`Replacing ${str} with ${replacement}`)
-                    return replacement
-                })
+            let css = this.fixCSS(fs.readFileSync(path.join(this.ThemesFolder, theme + '.theme.css'), 'utf-8'))
             console.log(css)
             this.FetchCSSImports(css).then((css2) => {
                 // console.log(css2, theme, i);
